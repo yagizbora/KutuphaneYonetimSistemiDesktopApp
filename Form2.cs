@@ -1,5 +1,6 @@
 ﻿using DotNetEnv;
-using Sprache;
+using Dapper;
+using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -53,8 +54,8 @@ namespace KutuphaneYonetimSistemi
                 SqlCommand response = new(query, connection);
                 response.Parameters.AddWithValue("id", id);
 
-                object result = response.ExecuteScalar();
-
+               Object result = response.ExecuteScalar();
+               
                 if (result != null)
                 {
                     bool isAvailable = Convert.ToBoolean(result);
@@ -446,7 +447,7 @@ namespace KutuphaneYonetimSistemi
                 else
                 {
                     int kitapId = int.Parse(kitapid.Text);
-                    if (!IsBookAvailable(kitapId)) 
+                    if (!IsBookAvailable(kitapId))
                     {
                         MessageBox.Show("Bu kitap ödünç alınamaz! Silinemez!", "Uyarı!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
@@ -516,9 +517,9 @@ namespace KutuphaneYonetimSistemi
                 return;
             }
 
-            if (!string.IsNullOrEmpty(textBoxKitapAdi.Text) 
-                || !string.IsNullOrEmpty(textBoxKitapTurKodu.Text) 
-                || !string.IsNullOrEmpty(textBoxISBN.Text) 
+            if (!string.IsNullOrEmpty(textBoxKitapAdi.Text)
+                || !string.IsNullOrEmpty(textBoxKitapTurKodu.Text)
+                || !string.IsNullOrEmpty(textBoxISBN.Text)
                 || !string.IsNullOrEmpty(textBoxYazarAdi.Text)
                 || !string.IsNullOrEmpty(textBoxYazarSoyadi.Text)
                 || !string.IsNullOrEmpty(textBoxOduncAlan.Text)

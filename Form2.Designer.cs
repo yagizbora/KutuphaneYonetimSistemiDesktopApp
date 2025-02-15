@@ -266,7 +266,7 @@
             // 
             // buttonKitabiOduncVer
             // 
-            buttonKitabiOduncVer.Location = new Point(107, 138);
+            buttonKitabiOduncVer.Location = new Point(107, 164);
             buttonKitabiOduncVer.Name = "buttonKitabiOduncVer";
             buttonKitabiOduncVer.Size = new Size(100, 39);
             buttonKitabiOduncVer.TabIndex = 21;
@@ -276,7 +276,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(107, 98);
+            dateTimePicker1.Location = new Point(107, 104);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(137, 23);
             dateTimePicker1.TabIndex = 16;
@@ -294,7 +294,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(25, 62);
+            label8.Location = new Point(25, 56);
             label8.Name = "label8";
             label8.Size = new Size(70, 15);
             label8.TabIndex = 13;
@@ -376,14 +376,14 @@
             dataGridViewKitaplar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewKitaplar.Location = new Point(12, 332);
             dataGridViewKitaplar.Name = "dataGridViewKitaplar";
-            dataGridViewKitaplar.Size = new Size(1416, 257);
+            dataGridViewKitaplar.Size = new Size(1416, 304);
             dataGridViewKitaplar.TabIndex = 3;
             dataGridViewKitaplar.CellClick += dataGridViewKitaplar_CellClick;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(12, 314);
+            label7.Location = new Point(18, 308);
             label7.Name = "label7";
             label7.Size = new Size(69, 15);
             label7.TabIndex = 4;
@@ -454,7 +454,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
-            ClientSize = new Size(1434, 601);
+            ClientSize = new Size(1434, 648);
             Controls.Add(groupBox1);
             Controls.Add(groupBox4);
             Controls.Add(label7);
