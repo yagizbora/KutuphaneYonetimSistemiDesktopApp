@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M59Y5EWv4HU=",
+  "dgSpecHash": "eQ9oNbURqWQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\KutuphaneYonetimSistemi.csproj",
+  "projectFilePath": "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\KutuphaneYonetimSistemi\\KutuphaneYonetimSistemi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yaizb\\.nuget\\packages\\dotnetenv\\3.1.1\\dotnetenv.3.1.1.nupkg.sha512",
     "C:\\Users\\yaizb\\.nuget\\packages\\microsoft.extensions.configuration\\1.1.2\\microsoft.extensions.configuration.1.1.2.nupkg.sha512",

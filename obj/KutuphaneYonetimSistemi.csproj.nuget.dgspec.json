@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\KutuphaneYonetimSistemi.csproj": {}
+    "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\KutuphaneYonetimSistemi\\KutuphaneYonetimSistemi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\KutuphaneYonetimSistemi.csproj": {
+    "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\KutuphaneYonetimSistemi\\KutuphaneYonetimSistemi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\KutuphaneYonetimSistemi.csproj",
+        "projectUniqueName": "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\KutuphaneYonetimSistemi\\KutuphaneYonetimSistemi.csproj",
         "projectName": "KutuphaneYonetimSistemi",
-        "projectPath": "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\KutuphaneYonetimSistemi.csproj",
+        "projectPath": "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\KutuphaneYonetimSistemi\\KutuphaneYonetimSistemi.csproj",
         "packagesPath": "C:\\Users\\yaizb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\obj\\",
+        "outputPath": "C:\\Users\\yaizb\\Desktop\\Yazılım\\C#\\KutuphaneYonetimSistemi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,26 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\",
+  "WorkspaceRootPath": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\KutuphaneYonetimSistemi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|c:\\users\\yaizb\\desktop\\yaz\u0131l\u0131m\\c#\\learning-csharp\\kutuphaneyonetimsistemi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|c:\\users\\yaizb\\desktop\\yaz\u0131l\u0131m\\c#\\kutuphaneyonetimsistemi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|c:\\users\\yaizb\\desktop\\yaz\u0131l\u0131m\\c#\\learning-csharp\\kutuphaneyonetimsistemi\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|c:\\users\\yaizb\\desktop\\yaz\u0131l\u0131m\\c#\\learning-csharp\\kutuphaneyonetimsistemi\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|c:\\users\\yaizb\\desktop\\yaz\u0131l\u0131m\\c#\\kutuphaneyonetimsistemi\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|c:\\users\\yaizb\\desktop\\yaz\u0131l\u0131m\\c#\\learning-csharp\\kutuphaneyonetimsistemi\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|c:\\users\\yaizb\\desktop\\yaz\u0131l\u0131m\\c#\\kutuphaneyonetimsistemi\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\KutuphaneYonetimSistemi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4B061B82-E3F4-4EF9-9928-A498258B1CDC}|KutuphaneYonetimSistemi.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,20 +26,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Form1.cs [Tasar\u0131m]",
-              "DocumentMoniker": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\KutuphaneYonetimSistemi\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\Form1.cs [Tasar\u0131m]",
+              "ToolTip": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\KutuphaneYonetimSistemi\\Form1.cs [Tasar\u0131m]",
               "RelativeToolTip": "Form1.cs [Tasar\u0131m]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-24T13:14:09.995Z",
               "IsPinned": true,
               "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\KutuphaneYonetimSistemi\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\KutuphaneYonetimSistemi\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAIwAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T12:10:05.057Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -75,13 +85,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Form2.cs",
-              "DocumentMoniker": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\Form2.cs",
+              "DocumentMoniker": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\KutuphaneYonetimSistemi\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\Form2.cs",
+              "ToolTip": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\KutuphaneYonetimSistemi\\Form2.cs",
               "RelativeToolTip": "Form2.cs",
-              "ViewState": "AgIAAMoBAAAAAAAAAAAAAMIBAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAMgBAAAAAAAAAABBwMIBAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-14T08:09:23.14Z",
               "EditorCaption": ""
@@ -90,38 +100,13 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Form2.cs [Tasar\u0131m]",
-              "DocumentMoniker": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\Form2.cs",
+              "DocumentMoniker": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\KutuphaneYonetimSistemi\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\Form2.cs [Tasar\u0131m]",
+              "ToolTip": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\KutuphaneYonetimSistemi\\Form2.cs [Tasar\u0131m]",
               "RelativeToolTip": "Form2.cs [Tasar\u0131m]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-11T06:59:56.37Z",
               "EditorCaption": " [Tasar\u0131m]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": ".env",
-              "DocumentMoniker": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\.env",
-              "RelativeDocumentMoniker": ".env",
-              "ToolTip": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\.env",
-              "RelativeToolTip": ".env",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-02-10T12:03:49.188Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\yaizb\\Desktop\\Yaz\u0131l\u0131m\\C#\\Learning-Csharp\\KutuphaneYonetimSistemi\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAIwAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T12:10:05.057Z",
-              "EditorCaption": ""
             }
           ]
         }
