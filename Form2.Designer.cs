@@ -67,7 +67,6 @@
             button3 = new Button();
             textBoxBookType = new TextBox();
             dataGridView1 = new DataGridView();
-            printDialog1 = new PrintDialog();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -450,10 +449,6 @@
             dataGridView1.TabIndex = 0;
             dataGridView1.Click += dataGridView1_Click;
             // 
-            // printDialog1
-            // 
-            printDialog1.UseEXDialog = true;
-            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -526,6 +521,5 @@
         private TextBox textBoxBookType;
         private Button buttonClearFilter;
         private Button buttonDeleteBookType;
-        private PrintDialog printDialog1;
     }
 }
