@@ -1,0 +1,17 @@
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\.env
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\KutuphaneYonetimSistemi.exe
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\KutuphaneYonetimSistemi.dll
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\KutuphaneYonetimSistemi.deps.json
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\KutuphaneYonetimSistemi.runtimeconfig.json
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\KutuphaneYonetimSistemi.pdb
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\DotNetEnv.dll
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\Microsoft.Extensions.Configuration.dll
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\Microsoft.Extensions.Primitives.dll
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\Sprache.dll
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\System.Data.SqlClient.dll
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\runtimes\win-arm64\native\sni.dll
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\runtimes\win-x64\native\sni.dll
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\runtimes\win-x86\native\sni.dll
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\yaizb\Desktop\Yazılım\C#\Learning-Csharp\KutuphaneYonetimSistemi\bin\Release\net9.0-windows\publish\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
