@@ -6,13 +6,24 @@ namespace KutuphaneYonetimSistemi
 {
     public partial class Form2 : Form
     {
+        [Obsolete]
+        SqlConnection? connection;
+
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
         // METHOD AREA
+
+
+        [Obsolete]
         public void Showdata()
         {
             string query = "SELECT book.*, booktype.Aciklama FROM TableKitaplar book JOIN TableKitapTurleri booktype ON booktype.KitapTurKodu = book.KitapTurKodu";
             SqlDataAdapter response = new(query, connection);
             DataTable dt = new DataTable();
-            response.Fill(dt);
+            response?.Fill(dt);
             if (dt.Rows.Count > 0)
             {
                 dataGridViewKitaplar.DataSource = dt;
@@ -20,12 +31,13 @@ namespace KutuphaneYonetimSistemi
             }
         }
 
+        [Obsolete]
         public void Showtypebook()
         {
             string query = "SELECT * FROM TableKitapTurleri";
             SqlDataAdapter response = new(query, connection);
             DataTable dt = new DataTable();
-            response.Fill(dt);
+            response?.Fill(dt);
             if (dt.Rows.Count > 0)
             {
                 dataGridView1.DataSource = dt;
@@ -57,7 +69,7 @@ namespace KutuphaneYonetimSistemi
             {
                 if (connection == null || connection.State == ConnectionState.Closed)
                 {
-                    connection.Open();
+                    connection?.Open();
                 }
 
                 string query = "SELECT Durum FROM TableKitaplar WHERE ID = @id";
@@ -84,19 +96,16 @@ namespace KutuphaneYonetimSistemi
             }
             finally
             {
-                connection.Close();
+                connection?.Close();
             }
 
         }
         // METHOD AREA
 
-        public Form2()
-        {
-            InitializeComponent();
-        }
 
-        SqlConnection connection;
 
+
+        [Obsolete]
         private void Form2_Load(object sender, EventArgs e)
         {
             try
@@ -115,9 +124,13 @@ namespace KutuphaneYonetimSistemi
                 if (!string.IsNullOrEmpty(connectionString))
                 {
                     Showdata();
-                    dataGridViewKitaplar.Columns["Durum"].ReadOnly = true;
-                    Showtypebook();
 
+                    if (dataGridViewKitaplar != null && dataGridViewKitaplar.Columns["Durum"] != null)
+                    {
+                        dataGridViewKitaplar.Columns["Durum"].ReadOnly = true;
+                    }
+
+                    Showtypebook();
                 }
             }
             catch (Exception ex)
@@ -138,11 +151,12 @@ namespace KutuphaneYonetimSistemi
 
         }
 
+        [Obsolete]
         private void buttonKitapEkle_Click(object sender, EventArgs e)
         {
             try
             {
-                connection.Open();
+                connection?.Open();
                 string query = "SELECT COUNT(*) as count FROM TableKitapTurleri WHERE KitapTurKodu = @KitapTurKodu";
                 SqlCommand response = new SqlCommand(query, connection);
                 response.Parameters.AddWithValue("@KitapTurKodu", textBoxKitapTurKodu.Text);
@@ -177,7 +191,7 @@ namespace KutuphaneYonetimSistemi
                 responses.Parameters.AddWithValue("@p5", "True");
                 responses.Parameters.AddWithValue("@p6", textBoxKitapTurKodu.Text);
 
-                responses.ExecuteNonQuery();
+                responses?.ExecuteNonQuery();
                 MessageBox.Show("Kitap başarıyla eklendi.");
             }
             catch (Exception ex)
@@ -187,7 +201,7 @@ namespace KutuphaneYonetimSistemi
             }
             finally
             {
-                connection.Close();
+                connection?.Close();
             }
 
             Showdata();
@@ -212,6 +226,7 @@ namespace KutuphaneYonetimSistemi
 
         }
 
+        [Obsolete]
         private void buttonKitapBilgiGuncelle_Click(object sender, EventArgs e)
         {
             try
@@ -222,7 +237,7 @@ namespace KutuphaneYonetimSistemi
                 }
                 else
                 {
-                    connection.Open();
+                    connection?.Open();
                     string query = "UPDATE TableKitaplar SET KitapAdi = @p1, YazarAdi = @p2, YazarSoyadi = @p3, ISBN = @p4, KitapTurKodu = @p5 WHERE ID = @p6";
                     SqlCommand response = new SqlCommand(query, connection);
                     response.Parameters.AddWithValue("@p1", textBoxKitapAdi.Text);
@@ -231,7 +246,7 @@ namespace KutuphaneYonetimSistemi
                     response.Parameters.AddWithValue("@p4", textBoxISBN.Text);
                     response.Parameters.AddWithValue("@p5", textBoxKitapTurKodu.Text);
                     response.Parameters.AddWithValue("@p6", kitapid.Text);
-                    response.ExecuteNonQuery();
+                    response?.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
@@ -240,11 +255,12 @@ namespace KutuphaneYonetimSistemi
             }
             finally
             {
-                connection.Close();
+                connection?.Close();
             }
             Showdata();
         }
 
+        [Obsolete]
         private void buttonKitabiOduncVer_Click(object sender, EventArgs e)
         {
             try
@@ -256,14 +272,14 @@ namespace KutuphaneYonetimSistemi
 
                 else
                 {
-                    connection.Open();
+                    connection?.Open();
                     string query = "UPDATE TableKitaplar SET OduncAlan = @p1, OduncAlmaTarihi = @p2,Durum = @p3 WHERE ID = @p4";
                     SqlCommand response = new SqlCommand(query, connection);
                     response.Parameters.AddWithValue("@p1", textBoxOduncAlan.Text);
                     response.Parameters.AddWithValue("@p2", SqlDbType.Date).Value = dateTimePicker1.Value.Date;
                     response.Parameters.AddWithValue("@p3", "False");
                     response.Parameters.AddWithValue("@p4", kitapid.Text);
-                    response.ExecuteNonQuery();
+                    response?.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
@@ -272,10 +288,12 @@ namespace KutuphaneYonetimSistemi
             }
             finally
             {
-                connection.Close();
+                connection?.Close();
             }
             Showdata();
         }
+
+        [Obsolete]
         private void button3_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxBookType.Text))
@@ -285,7 +303,7 @@ namespace KutuphaneYonetimSistemi
             }
             try
             {
-                connection.Open();
+                connection?.Open();
                 string query = "INSERT INTO TableKitapTurleri (Aciklama) VALUES(@BookType)";
 
                 SqlCommand request = new SqlCommand(query, connection);
@@ -304,9 +322,11 @@ namespace KutuphaneYonetimSistemi
             }
             finally
             {
-                connection.Close();
+                connection?.Close();
             }
         }
+
+        [Obsolete]
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -319,7 +339,7 @@ namespace KutuphaneYonetimSistemi
                 {
                     if (connection == null || connection.State == ConnectionState.Closed)
                     {
-                        connection.Open();
+                        connection?.Open();
                     }
 
                     SqlCommand response = new SqlCommand(
@@ -330,7 +350,7 @@ namespace KutuphaneYonetimSistemi
                     response.Parameters.Add("@p2", SqlDbType.Date).Value = DBNull.Value;
                     response.Parameters.AddWithValue("@p3", true);
                     response.Parameters.AddWithValue("@p4", kitapid.Text);
-                    response.ExecuteNonQuery();
+                    response?.ExecuteNonQuery();
                     textBoxOduncAlan.Text = "";
                     labelgecikmebedeli.Text = "";
                     dateTimePicker1.Value = DateTime.Now;
@@ -344,7 +364,7 @@ namespace KutuphaneYonetimSistemi
             {
                 if (connection != null && connection.State == ConnectionState.Open)
                 {
-                    connection.Close();
+                    connection?.Close();
                 }
             }
             Showdata();
@@ -374,11 +394,12 @@ namespace KutuphaneYonetimSistemi
             Application.Exit();
         }
 
+        [Obsolete]
         private void buttonara_Click(object sender, EventArgs e)
         {
             try
             {
-                connection.Open();
+                connection?.Open();
 
                 string query = "SELECT * FROM TableKitaplar WHERE 1=1";
 
@@ -421,7 +442,7 @@ namespace KutuphaneYonetimSistemi
 
                 SqlDataAdapter response = new(command);
                 DataTable dt = new DataTable();
-                response.Fill(dt);
+                response?.Fill(dt);
 
                 if (dt.Rows.Count > 0)
                 {
@@ -438,7 +459,7 @@ namespace KutuphaneYonetimSistemi
             }
             finally
             {
-                connection.Close();
+                connection?.Close();
             }
 
 
@@ -465,7 +486,7 @@ namespace KutuphaneYonetimSistemi
 
                     if (connection == null || connection.State == ConnectionState.Closed)
                     {
-                        connection.Open();
+                        connection?.Open();
                     }
                     string query = "DELETE FROM TableKitaplar WHERE ID = @id";
                     SqlCommand response = new(query, connection);
@@ -503,21 +524,16 @@ namespace KutuphaneYonetimSistemi
             }
             finally
             {
-                connection.Close();
+                connection?.Close();
 
             }
         }
 
+        [Obsolete]
         private void buttonClearFilter_Click(object sender, EventArgs e)
         {
             var (isValid, message) = CheckKitapId(kitapid?.Text?.ToString() ?? "");
             string kitapidtext = kitapid?.Text?.ToString() ?? "";
-
-            if (!string.IsNullOrEmpty(message))
-            {
-                MessageBox.Show("Bir sorun oluştu lütfen IT ekibine iletiniz" + "\n" + message, "Uyarı");
-                return;  
-            }
 
             if (!isValid || string.IsNullOrWhiteSpace(kitapidtext) || string.IsNullOrEmpty(textBoxKitapAdi?.Text))
             {
@@ -535,23 +551,24 @@ namespace KutuphaneYonetimSistemi
                 return;  
             }
 
-            if (!string.IsNullOrEmpty(textBoxKitapAdi.Text)
-                || !string.IsNullOrEmpty(textBoxKitapTurKodu.Text)
-                || !string.IsNullOrEmpty(textBoxISBN.Text)
-                || !string.IsNullOrEmpty(textBoxYazarAdi.Text)
-                || !string.IsNullOrEmpty(textBoxYazarSoyadi.Text)
-                || !string.IsNullOrEmpty(textBoxOduncAlan.Text))
+            if ((textBoxKitapAdi != null && !string.IsNullOrEmpty(textBoxKitapAdi.Text))
+                || (textBoxKitapTurKodu != null && !string.IsNullOrEmpty(textBoxKitapTurKodu.Text))
+                || (textBoxISBN != null && !string.IsNullOrEmpty(textBoxISBN.Text))
+                || (textBoxYazarAdi != null && !string.IsNullOrEmpty(textBoxYazarAdi.Text))
+                || (textBoxYazarSoyadi != null && !string.IsNullOrEmpty(textBoxYazarSoyadi.Text))
+                || (textBoxOduncAlan != null && !string.IsNullOrEmpty(textBoxOduncAlan.Text)))
             {
-                textBoxISBN.Text = "";
-                textBoxKitapAdi.Text = "";
-                textBoxKitapTurKodu.Text = "";
-                textBoxOduncAlan.Text = "";
-                textBoxYazarAdi.Text = "";
-                textBoxYazarSoyadi.Text = "";
-                kitapid.Text = "";  
+                if (textBoxISBN != null) textBoxISBN.Text = "";
+                if (textBoxKitapAdi != null) textBoxKitapAdi.Text = "";
+                if (textBoxKitapTurKodu != null) textBoxKitapTurKodu.Text = "";
+                if (textBoxOduncAlan != null) textBoxOduncAlan.Text = "";
+                if (textBoxYazarAdi != null) textBoxYazarAdi.Text = "";
+                if (textBoxYazarSoyadi != null) textBoxYazarSoyadi.Text = "";
+                if (kitapid != null) kitapid.Text = "-";
             }
         }
 
+        [Obsolete]
         private void buttonDeleteBookType_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedCells.Count == 0)
@@ -571,7 +588,7 @@ namespace KutuphaneYonetimSistemi
 
             try
             {
-                connection.Open();
+                connection?.Open();
 
                 string query = "DELETE FROM TableKitapTurleri WHERE KitapTurKodu = @id";
                 SqlCommand response = new(query, connection);
@@ -590,7 +607,7 @@ namespace KutuphaneYonetimSistemi
             }
             finally
             {
-                connection.Close();
+                connection?.Close();
             }
         }
 
@@ -599,7 +616,7 @@ namespace KutuphaneYonetimSistemi
             int chooseline = dataGridView1.SelectedCells[0].RowIndex;
             string? id = dataGridView1.Rows[chooseline].Cells[0].Value?.ToString();
 
-            textBoxKitapTurKodu.Text = id.ToString();
+            textBoxKitapTurKodu.Text = id?.ToString();
         }
     }
 }

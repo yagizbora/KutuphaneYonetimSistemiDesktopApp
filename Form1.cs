@@ -15,7 +15,7 @@ namespace KutuphaneYonetimSistemi
         Form2? formKitaplar;
 
         [Obsolete]
-        SqlConnection connection;
+        SqlConnection? connection;
 
         [Obsolete]
         private void Form1_Load(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace KutuphaneYonetimSistemi
 
                 if (response.Read())
                 {
-                    sifre = response[0].ToString();
+                    sifre = response[0]?.ToString();
                 }
                 else
                 {
