@@ -512,10 +512,13 @@ namespace KutuphaneYonetimSistemi
         {
             var (isValid, message) = CheckKitapId(kitapid?.Text?.ToString() ?? "");
             string kitapidtext = kitapid?.Text?.ToString() ?? "";
-            if(!string.IsNullOrEmpty(message))
+
+            if (!string.IsNullOrEmpty(message))
             {
-                MessageBox.Show("Bir sorun oluştu lütfen IT ekibine iletiniz" + "\n" + message , "Uyarı");
+                MessageBox.Show("Bir sorun oluştu lütfen IT ekibine iletiniz" + "\n" + message, "Uyarı");
+                return;  
             }
+
             if (!isValid || string.IsNullOrWhiteSpace(kitapidtext) || string.IsNullOrEmpty(textBoxKitapAdi?.Text))
             {
                 DialogResult result = MessageBox.Show("Bir kitap seçmeden temizle butonu kullanılamaz!", "Hata", MessageBoxButtons.OK);
@@ -524,20 +527,20 @@ namespace KutuphaneYonetimSistemi
                     DialogResult result1 = MessageBox.Show("Tüm verileri tekrardan yenilememi ister misiniz?", "Soru?", MessageBoxButtons.YesNo);
                     if (result1 == DialogResult.Yes)
                     {
+                        
                         Showtypebook();
                         Showdata();
                     }
                 }
-                return;
+                return;  
             }
-            if (
-                   !string.IsNullOrEmpty(textBoxKitapAdi.Text)
+
+            if (!string.IsNullOrEmpty(textBoxKitapAdi.Text)
                 || !string.IsNullOrEmpty(textBoxKitapTurKodu.Text)
                 || !string.IsNullOrEmpty(textBoxISBN.Text)
                 || !string.IsNullOrEmpty(textBoxYazarAdi.Text)
                 || !string.IsNullOrEmpty(textBoxYazarSoyadi.Text)
-                || !string.IsNullOrEmpty(textBoxOduncAlan.Text)
-               )
+                || !string.IsNullOrEmpty(textBoxOduncAlan.Text))
             {
                 textBoxISBN.Text = "";
                 textBoxKitapAdi.Text = "";
@@ -545,12 +548,7 @@ namespace KutuphaneYonetimSistemi
                 textBoxOduncAlan.Text = "";
                 textBoxYazarAdi.Text = "";
                 textBoxYazarSoyadi.Text = "";
-                kitapid.Text = "-";
-                return;
-            }
-            else
-            {
-                return;
+                kitapid.Text = "";  
             }
         }
 
