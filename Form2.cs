@@ -1,6 +1,4 @@
 ﻿using DotNetEnv;
-using Dapper;
-using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -9,7 +7,6 @@ namespace KutuphaneYonetimSistemi
     public partial class Form2 : Form
     {
         // METHOD AREA
-        [Obsolete]
         public void Showdata()
         {
             string query = "SELECT book.*, booktype.Aciklama FROM TableKitaplar book JOIN TableKitapTurleri booktype ON booktype.KitapTurKodu = book.KitapTurKodu";
@@ -23,7 +20,6 @@ namespace KutuphaneYonetimSistemi
             }
         }
 
-        [Obsolete]
         public void Showtypebook()
         {
             string query = "SELECT * FROM TableKitapTurleri";
@@ -35,10 +31,24 @@ namespace KutuphaneYonetimSistemi
                 dataGridView1.DataSource = dt;
             }
         }
-        private bool CheckKitapId(string kitapId)
+
+        public static (bool isValid, string message) CheckKitapId(string kitapId)
         {
-            return kitapId == "-";
+            try
+            {
+                if (string.IsNullOrEmpty(kitapId) || kitapId == "-")
+                {
+                    return (false, "Geçersiz kitap ID");
+                }
+
+                return (true, "Başarılı");
+            }
+            catch (Exception ex)
+            {
+                return (false, $"Hata oluştu: {ex.Message}");
+            }
         }
+
 
         [Obsolete]
         private bool IsBookAvailable(int id)
@@ -54,8 +64,8 @@ namespace KutuphaneYonetimSistemi
                 SqlCommand response = new(query, connection);
                 response.Parameters.AddWithValue("id", id);
 
-               Object result = response.ExecuteScalar();
-               
+                Object result = response.ExecuteScalar();
+
                 if (result != null)
                 {
                     bool isAvailable = Convert.ToBoolean(result);
@@ -69,7 +79,7 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hata: " + ex.Message);
+                MessageBox.Show("Hata oluştu lütfen IT ekibine bildirin: " + "Hata: \n" + ex.Message);
                 return false;
             }
             finally
@@ -80,11 +90,11 @@ namespace KutuphaneYonetimSistemi
         }
         // METHOD AREA
 
-
         public Form2()
         {
             InitializeComponent();
         }
+
         SqlConnection connection;
 
         private void Form2_Load(object sender, EventArgs e)
@@ -472,10 +482,13 @@ namespace KutuphaneYonetimSistemi
                         if (result == DialogResult.OK)
                         {
                             Showdata();
+                            Showtypebook();
                         }
                         else
                         {
                             Showdata();
+                            Showtypebook();
+
                         }
                     }
                     else
@@ -497,8 +510,13 @@ namespace KutuphaneYonetimSistemi
 
         private void buttonClearFilter_Click(object sender, EventArgs e)
         {
-
-            if (CheckKitapId(kitapid.Text) || string.IsNullOrWhiteSpace(kitapid.Text))
+            var (isValid, message) = CheckKitapId(kitapid?.Text?.ToString() ?? "");
+            string kitapidtext = kitapid?.Text?.ToString() ?? "";
+            if(!string.IsNullOrEmpty(message))
+            {
+                MessageBox.Show("Bir sorun oluştu lütfen IT ekibine iletiniz" + "\n" + message , "Uyarı");
+            }
+            if (!isValid || string.IsNullOrWhiteSpace(kitapidtext) || string.IsNullOrEmpty(textBoxKitapAdi?.Text))
             {
                 DialogResult result = MessageBox.Show("Bir kitap seçmeden temizle butonu kullanılamaz!", "Hata", MessageBoxButtons.OK);
                 if (result == DialogResult.OK)
@@ -510,20 +528,16 @@ namespace KutuphaneYonetimSistemi
                         Showdata();
                     }
                 }
-                else
-                {
-                    //pass
-                }
                 return;
             }
-
-            if (!string.IsNullOrEmpty(textBoxKitapAdi.Text)
+            if (
+                   !string.IsNullOrEmpty(textBoxKitapAdi.Text)
                 || !string.IsNullOrEmpty(textBoxKitapTurKodu.Text)
                 || !string.IsNullOrEmpty(textBoxISBN.Text)
                 || !string.IsNullOrEmpty(textBoxYazarAdi.Text)
                 || !string.IsNullOrEmpty(textBoxYazarSoyadi.Text)
                 || !string.IsNullOrEmpty(textBoxOduncAlan.Text)
-                )
+               )
             {
                 textBoxISBN.Text = "";
                 textBoxKitapAdi.Text = "";
@@ -532,10 +546,11 @@ namespace KutuphaneYonetimSistemi
                 textBoxYazarAdi.Text = "";
                 textBoxYazarSoyadi.Text = "";
                 kitapid.Text = "-";
+                return;
             }
             else
             {
-
+                return;
             }
         }
 
