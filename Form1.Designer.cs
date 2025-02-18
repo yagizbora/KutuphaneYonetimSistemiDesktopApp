@@ -92,7 +92,7 @@
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(textBoxKullaniciAdi);
-            groupBox1.Location = new Point(26, 12);
+            groupBox1.Location = new Point(15, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(398, 239);
             groupBox1.TabIndex = 5;
@@ -105,7 +105,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
-            ClientSize = new Size(471, 374);
+            ClientSize = new Size(425, 242);
             Controls.Add(groupBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;

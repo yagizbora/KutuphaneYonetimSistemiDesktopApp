@@ -5,8 +5,6 @@ namespace KutuphaneYonetimSistemi
 {
     public partial class Form1 : Form
     {
-
-
         public Form1()
         {
             InitializeComponent();
@@ -42,7 +40,7 @@ namespace KutuphaneYonetimSistemi
         [Obsolete]
         private void button1_Click(object? sender, EventArgs e)
         {
-            string sifre = string.Empty;
+            string? sifre = string.Empty;
 
             if (connection == null)
             {
@@ -120,6 +118,7 @@ namespace KutuphaneYonetimSistemi
 
         }
 
+        [Obsolete]
         private void groupBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -129,6 +128,7 @@ namespace KutuphaneYonetimSistemi
 
         }
 
+        [Obsolete]
         private void textBoxKullaniciAdi_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -138,6 +138,7 @@ namespace KutuphaneYonetimSistemi
             }
         }
 
+        [Obsolete]
         private void textBoxSifre_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
