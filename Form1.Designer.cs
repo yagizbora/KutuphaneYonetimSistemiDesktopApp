@@ -35,6 +35,7 @@
             label1 = new Label();
             label2 = new Label();
             groupBox1 = new GroupBox();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -100,12 +101,23 @@
             groupBox1.Enter += groupBox1_Enter;
             groupBox1.PreviewKeyDown += groupBox1_PreviewKeyDown;
             // 
+            // button2
+            // 
+            button2.Location = new Point(15, 248);
+            button2.Name = "button2";
+            button2.Size = new Size(93, 32);
+            button2.TabIndex = 6;
+            button2.Text = "Hesap Aç";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
-            ClientSize = new Size(425, 242);
+            ClientSize = new Size(422, 290);
+            Controls.Add(button2);
             Controls.Add(groupBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
@@ -125,5 +137,6 @@
         private Label label1;
         private Label label2;
         private GroupBox groupBox1;
+        private Button button2;
     }
 }

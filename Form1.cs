@@ -12,6 +12,8 @@ namespace KutuphaneYonetimSistemi
 
         Form2? formKitaplar;
 
+        Form3? formauth;
+
         [Obsolete]
         SqlConnection? connection;
 
@@ -146,6 +148,13 @@ namespace KutuphaneYonetimSistemi
                 e.SuppressKeyPress = true;
                 button1_Click(null, EventArgs.Empty);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            formauth = new Form3();
+
+            formauth.Show();
         }
     }
 }

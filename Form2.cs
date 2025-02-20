@@ -20,7 +20,17 @@ namespace KutuphaneYonetimSistemi
         [Obsolete]
         public void Showdata()
         {
-            string query = "SELECT book.*, booktype.Aciklama FROM TableKitaplar book JOIN TableKitapTurleri booktype ON booktype.KitapTurKodu = book.KitapTurKodu";
+            string query = "" +
+                "SELECT book.ID," +
+                "book.KitapAdi as [Kitap Adı]," +
+                "book.YazarAdi as [Yazar Adı]," +
+                "book.YazarSoyadi as [Yazar Soyadı]," +
+                "book.ISBN,book.Durum," +
+                "book.OduncAlan as [Ödünç Alan]," +
+                "book.OduncAlmaTarihi as [Ödünç Alma Tarihi]," +
+                "book.KitapTurKodu as [Kitap Tür Kodu], " +
+                "booktype.Aciklama as [Açıklama]" +
+                "FROM TableKitaplar book JOIN TableKitapTurleri booktype ON booktype.KitapTurKodu = book.KitapTurKodu";
             SqlDataAdapter response = new(query, connection);
             DataTable dt = new DataTable();
             response?.Fill(dt);
@@ -125,10 +135,8 @@ namespace KutuphaneYonetimSistemi
                 {
                     Showdata();
 
-                    if (dataGridViewKitaplar != null && dataGridViewKitaplar.Columns["Durum"] != null)
-                    {
-                        dataGridViewKitaplar.Columns["Durum"].ReadOnly = true;
-                    }
+                    dataGridViewKitaplar.ReadOnly = true;
+                    dataGridView1.ReadOnly = true;
 
                     Showtypebook();
                 }
