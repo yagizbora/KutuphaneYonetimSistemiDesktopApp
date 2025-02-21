@@ -39,6 +39,7 @@
             groupBox1 = new GroupBox();
             dataGridView1 = new DataGridView();
             groupBox2 = new GroupBox();
+            button4 = new Button();
             labeluserid = new Label();
             label5 = new Label();
             button3 = new Button();
@@ -47,7 +48,6 @@
             textBoxEditusername = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            button4 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
@@ -149,10 +149,21 @@
             groupBox2.Controls.Add(label4);
             groupBox2.Location = new Point(176, 19);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(351, 199);
+            groupBox2.Size = new Size(326, 199);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Kullanıcı düzenleme";
+            // 
+            // button4
+            // 
+            button4.ForeColor = Color.Black;
+            button4.Location = new Point(260, 142);
+            button4.Name = "button4";
+            button4.Size = new Size(74, 35);
+            button4.TabIndex = 12;
+            button4.Text = "Temizle";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // labeluserid
             // 
@@ -230,28 +241,18 @@
             label4.TabIndex = 5;
             label4.Text = "Kullanıcı adı";
             // 
-            // button4
-            // 
-            button4.ForeColor = Color.Black;
-            button4.Location = new Point(260, 142);
-            button4.Name = "button4";
-            button4.Size = new Size(74, 35);
-            button4.TabIndex = 12;
-            button4.Text = "Temizle";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
-            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
-            ClientSize = new Size(636, 533);
+            ClientSize = new Size(511, 477);
             Controls.Add(groupBox2);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
             ForeColor = Color.White;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Form4";
             Text = "Kullanıcı Oluştur";
             Load += Form4_Load;
