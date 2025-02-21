@@ -157,7 +157,7 @@
             // button4
             // 
             button4.ForeColor = Color.Black;
-            button4.Location = new Point(260, 142);
+            button4.Location = new Point(236, 142);
             button4.Name = "button4";
             button4.Size = new Size(74, 35);
             button4.TabIndex = 12;
@@ -169,7 +169,7 @@
             // 
             labeluserid.AutoSize = true;
             labeluserid.ForeColor = Color.Black;
-            labeluserid.Location = new Point(228, 24);
+            labeluserid.Location = new Point(218, 24);
             labeluserid.Name = "labeluserid";
             labeluserid.Size = new Size(12, 15);
             labeluserid.TabIndex = 11;
@@ -188,7 +188,7 @@
             // button3
             // 
             button3.ForeColor = Color.Black;
-            button3.Location = new Point(153, 142);
+            button3.Location = new Point(129, 142);
             button3.Name = "button3";
             button3.Size = new Size(101, 35);
             button3.TabIndex = 9;
@@ -199,7 +199,7 @@
             // button2
             // 
             button2.ForeColor = Color.Black;
-            button2.Location = new Point(30, 142);
+            button2.Location = new Point(6, 142);
             button2.Name = "button2";
             button2.Size = new Size(117, 35);
             button2.TabIndex = 8;
@@ -209,14 +209,14 @@
             // 
             // textBoxEditpassword
             // 
-            textBoxEditpassword.Location = new Point(30, 103);
+            textBoxEditpassword.Location = new Point(6, 103);
             textBoxEditpassword.Name = "textBoxEditpassword";
             textBoxEditpassword.Size = new Size(117, 23);
             textBoxEditpassword.TabIndex = 6;
             // 
             // textBoxEditusername
             // 
-            textBoxEditusername.Location = new Point(30, 42);
+            textBoxEditusername.Location = new Point(6, 42);
             textBoxEditusername.Name = "textBoxEditusername";
             textBoxEditusername.Size = new Size(117, 23);
             textBoxEditusername.TabIndex = 4;
@@ -225,7 +225,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(30, 85);
+            label3.Location = new Point(6, 85);
             label3.Name = "label3";
             label3.Size = new Size(30, 15);
             label3.TabIndex = 7;
@@ -235,7 +235,7 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(30, 24);
+            label4.Location = new Point(6, 24);
             label4.Name = "label4";
             label4.Size = new Size(71, 15);
             label4.TabIndex = 5;
