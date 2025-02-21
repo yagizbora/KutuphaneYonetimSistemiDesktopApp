@@ -105,9 +105,9 @@
             // 
             button2.Location = new Point(15, 248);
             button2.Name = "button2";
-            button2.Size = new Size(93, 32);
+            button2.Size = new Size(196, 32);
             button2.TabIndex = 6;
-            button2.Text = "Hesap Aç";
+            button2.Text = "Kullanıcı hesap ayar ekranı";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 

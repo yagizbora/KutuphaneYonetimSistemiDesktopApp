@@ -15,6 +15,19 @@ namespace KutuphaneYonetimSistemi
             InitializeComponent();
         }
 
+        public void getalluser()
+        {
+            string query = "SELECT * FROM TableKutuphaneYoneticileri";
+            SqlDataAdapter response = new(query, connection);
+            DataTable dt = new DataTable();
+            response?.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                dataGridView1.DataSource = dt;
+
+            }
+        }
+
         private void Form4_Load(object sender, EventArgs e)
         {
             try
@@ -28,7 +41,13 @@ namespace KutuphaneYonetimSistemi
                     return;
                 }
 
+
                 connection = new SqlConnection(connectionString);
+
+                if (!string.IsNullOrEmpty(connectionString))
+                {
+                    getalluser();
+                }
             }
             catch (Exception ex)
             {
@@ -52,19 +71,151 @@ namespace KutuphaneYonetimSistemi
                 response.Parameters.AddWithValue("@password", textBoxpassword.Text);
 
                 response.ExecuteNonQuery();
-                MessageBox.Show("Hesap Oluşturuldu!");
+                DialogResult result = MessageBox.Show("Hesap Oluşturuldu!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    DialogResult result2 = MessageBox.Show("Giriş ekranına dönmek ister misiz? başka bir hesap açılacak mı?" + "\n" + "Giriş ekranına dönüş için Evet" + "\n" +
+                        "Başka hesap açılışı için Hayır a tıklayınız", "Soru", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (result2 == DialogResult.OK)
+                    {
+                        this.Hide();
+                    }
+                    else
+                    {
+                        getalluser();
+                    }
+                }
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Hata" + "\n" + ex.Message);
-            } 
+            }
             finally
             {
                 connection.Close();
             }
 
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string id = labeluserid.Text.ToString();
+            string newusername = textBoxEditusername.Text.ToString();
+            string newpassword = textBoxEditpassword.Text.ToString();
 
+            if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(newusername) || string.IsNullOrEmpty(newpassword))
+            {
+                MessageBox.Show("Lütfen değiştirmek istediğiniz kullanıcıyı seçiniz", "Hata");
+                return;
+            }
+            if (!string.IsNullOrEmpty(id) || !string.IsNullOrEmpty(newusername) || !string.IsNullOrEmpty(newpassword))
+            {
+                try
+                {
+                    if (connection == null || connection.State == ConnectionState.Closed)
+                    {
+                        connection?.Open();
+                    }
+                    string query = "UPDATE TableKutuphaneYoneticileri SET kullaniciadi = @newusername,Sifre = @newpassword WHERE id = @id";
+                    SqlCommand request = new(query, connection);
+                    request.Parameters.AddWithValue("@newusername", newusername);
+                    request.Parameters.AddWithValue("@newpassword", newpassword);
+                    request.Parameters.AddWithValue("@id", id);
+                    int affectedRows = request.ExecuteNonQuery();
 
+                    if (affectedRows > 0)
+                    {
+                        MessageBox.Show("Kullanıcı bilgileri başarı ile değiştirldi!", "Uyarı");
+                        getalluser();
+                    }
+                    else if (affectedRows == 0)
+                    {
+                        MessageBox.Show("Kullanıcı bilgileri değiştirelemedi veya bulunamadı bu sorun tekrarlanması halinde lütfen IT yöneticiniz ile iletişime geçin", "Uyarı",
+                            MessageBoxButtons.OKCancel,
+                            MessageBoxIcon.Error);
+                        getalluser();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata " +
+                        "\n" +
+                        ex.Message);
+                }
+                finally
+                {
+                    connection?.Close();
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string id = labeluserid.Text.ToString();
+
+            if (string.IsNullOrEmpty(id) || id == "-")
+            {
+                MessageBox.Show("Lütfen bir kullanıcı seçiniz", "Hata");
+            }
+            else
+            {
+                try
+                {
+                    if (connection == null || connection.State == ConnectionState.Closed)
+                    {
+                        connection?.Open();
+                    }
+
+                    string query = "DELETE FROM TableKutuphaneYoneticileri WHERE id = @id";
+                    SqlCommand request = new(query, connection);
+                    request.Parameters.AddWithValue("@id", id);
+
+                    int affectedRows = request.ExecuteNonQuery();
+
+                    if (affectedRows > 0)
+                    {
+                        MessageBox.Show("Kullanıcı başarı ile silindi!", "Uyarı");
+                        getalluser();
+                    }
+                    else if (affectedRows == 0)
+                    {
+                        MessageBox.Show("Kullanıcı silinemedi veya bulunamadı bu sorun tekrarlanması halinde lütfen IT yöneticiniz ile iletişime geçin", "Uyarı",
+                            MessageBoxButtons.OKCancel,
+                            MessageBoxIcon.Error);
+                        getalluser();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata " +
+                        "\n" +
+                        ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dataGridView1.Refresh();
+                labeluserid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value?.ToString();
+                textBoxEditusername.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value?.ToString();
+                textBoxEditpassword.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value?.ToString();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBoxEditusername.Text = DBNull.Value.ToString();
+            textBoxEditpassword.Text = DBNull.Value.ToString();
+            labeluserid.Text = "-";
+            dataGridView1.Refresh();
+            getalluser();
+        }
     }
 }
