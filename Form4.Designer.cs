@@ -246,19 +246,10 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
-<<<<<<< HEAD
             ClientSize = new Size(636, 533);
             Controls.Add(groupBox2);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
-=======
-            ClientSize = new Size(206, 226);
-            Controls.Add(button1);
-            Controls.Add(label2);
-            Controls.Add(textBoxpassword);
-            Controls.Add(label1);
-            Controls.Add(textBoxusername);
->>>>>>> 6ca55ebd7db83a127e6e17c54869a619ddb1a865
             ForeColor = Color.White;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form4";
