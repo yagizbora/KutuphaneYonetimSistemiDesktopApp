@@ -517,7 +517,6 @@ namespace KutuphaneYonetimSistemi
                         {
                             Showdata();
                             Showtypebook();
-
                         }
                     }
                     else

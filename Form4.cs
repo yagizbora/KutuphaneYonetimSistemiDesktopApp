@@ -52,7 +52,17 @@ namespace KutuphaneYonetimSistemi
                 response.Parameters.AddWithValue("@password", textBoxpassword.Text);
 
                 response.ExecuteNonQuery();
-                MessageBox.Show("Hesap Oluşturuldu!");
+              DialogResult result = MessageBox.Show("Hesap Oluşturuldu!","Başarılı",MessageBoxButtons.OK ,MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    DialogResult result2 = MessageBox.Show("Giriş ekranına dönmek ister misiz? başka bir hesap açılacak mı?"+"\n" + "Giriş ekranına dönüş için Evet" +"\n" +
+                        "Başka hesap açılışı için Hayır a tıklayınız" ,"Soru",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                    if(result2 == DialogResult.OK)
+                    {
+                        this.Hide();
+                    }
+                }
+
             }
             catch(Exception ex)
             {
