@@ -52,11 +52,11 @@ namespace KutuphaneYonetimSistemi
                 SqlCommand response = new(query, connection);
                 response.Parameters.AddWithValue("@password", textBoxpassword.Text);
 
-                int checkresponse = (int)response.ExecuteScalar();
+                int? checkresponse = (int)response.ExecuteScalar();
 
                 if (checkresponse == 0)
                 {
-                    MessageBox.Show("Veri okunamadı. Lütfen veritabanını kontrol edin.");
+                    MessageBox.Show("Şifre yanlış!","Hata!");
                     return;
                 }
 
@@ -76,11 +76,15 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hata: {ex.Message}"); 
+                MessageBox.Show("Veri okunamadı. Lütfen veritabanını kontrol edin. Eğer yetkii değilseniz lütfen IT departmaanı ile iletişime geçiniz! " +
+                    "\n" +
+                    "Hata Mesajı:" +
+                    "\n" +
+                    ex.Message, "HATA!");
             }
             finally
             {
-                connection.Close();
+                connection?.Close();
             }
 
         }
