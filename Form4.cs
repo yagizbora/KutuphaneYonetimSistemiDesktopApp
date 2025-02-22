@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 
-
 namespace KutuphaneYonetimSistemi
 {
     public partial class Form4 : Form
@@ -27,6 +26,7 @@ namespace KutuphaneYonetimSistemi
 
             }
         }
+
 
         private void Form4_Load(object sender, EventArgs e)
         {
@@ -93,7 +93,7 @@ namespace KutuphaneYonetimSistemi
             }
             finally
             {
-                connection.Close();
+                connection?.Close();
             }
 
         }
