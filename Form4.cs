@@ -26,8 +26,6 @@ namespace KutuphaneYonetimSistemi
 
             }
         }
-
-
         private void Form4_Load(object sender, EventArgs e)
         {
             try
@@ -215,6 +213,65 @@ namespace KutuphaneYonetimSistemi
             textBoxEditpassword.Text = DBNull.Value.ToString();
             labeluserid.Text = "-";
             dataGridView1.Refresh();
+            getalluser();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection?.Open();
+
+                string query = "SELECT * FROM TableKutuphaneYoneticileri WHERE 1=1";
+
+                List<string> conditions = new List<string>();
+                SqlCommand request = new SqlCommand();
+                request.Connection = connection;
+
+                if (!string.IsNullOrEmpty(textBoxfilterusername.Text))
+                {
+                    conditions.Add("Kullaniciadi LIKE @filterusername");
+                    request.Parameters.AddWithValue("@filterusername", textBoxfilterusername.Text);
+                }
+                if (!string.IsNullOrEmpty(textBoxfilterpassword.Text))
+                {
+                    conditions.Add("Sifre LIKE @filterpassword");
+                    request.Parameters.AddWithValue("@filterpassword", textBoxfilterpassword.Text);
+                }
+                if (conditions.Count > 0)
+                {
+                    query += " AND " + string.Join(" AND ", conditions);
+                }
+
+                request.CommandText = query;
+                SqlDataAdapter response = new(request);
+                DataTable dt = new DataTable();
+                response?.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Kayıt bulunamadı.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+
+            }
+            finally
+            {
+                connection?.Close();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            textBoxfilterpassword.Text = "";
+            textBoxfilterusername.Text = "";
             getalluser();
         }
     }

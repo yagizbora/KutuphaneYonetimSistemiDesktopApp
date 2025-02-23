@@ -94,7 +94,7 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(12, 22);
+            groupBox1.Location = new Point(13, 8);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(325, 283);
             groupBox1.TabIndex = 0;
@@ -257,9 +257,9 @@
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(textBoxOduncAlan);
-            groupBox2.Location = new Point(686, 26);
+            groupBox2.Location = new Point(686, 8);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(253, 279);
+            groupBox2.Size = new Size(253, 283);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Kitap Ödünç Alma";
@@ -314,7 +314,7 @@
             groupBox3.Controls.Add(label12);
             groupBox3.Controls.Add(labelgecikmebedeli);
             groupBox3.Controls.Add(label10);
-            groupBox3.Location = new Point(945, 26);
+            groupBox3.Location = new Point(945, 12);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(211, 279);
             groupBox3.TabIndex = 2;
@@ -374,7 +374,7 @@
             // 
             dataGridViewKitaplar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewKitaplar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewKitaplar.Location = new Point(12, 332);
+            dataGridViewKitaplar.Location = new Point(10, 312);
             dataGridViewKitaplar.Name = "dataGridViewKitaplar";
             dataGridViewKitaplar.Size = new Size(1144, 304);
             dataGridViewKitaplar.TabIndex = 3;
@@ -383,7 +383,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(18, 308);
+            label7.Location = new Point(13, 294);
             label7.Name = "label7";
             label7.Size = new Size(69, 15);
             label7.TabIndex = 4;
@@ -396,7 +396,7 @@
             groupBox4.Controls.Add(button3);
             groupBox4.Controls.Add(textBoxBookType);
             groupBox4.Controls.Add(dataGridView1);
-            groupBox4.Location = new Point(343, 22);
+            groupBox4.Location = new Point(344, 8);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(337, 283);
             groupBox4.TabIndex = 5;
@@ -405,9 +405,9 @@
             // 
             // buttonDeleteBookType
             // 
-            buttonDeleteBookType.Location = new Point(6, 239);
+            buttonDeleteBookType.Location = new Point(6, 224);
             buttonDeleteBookType.Name = "buttonDeleteBookType";
-            buttonDeleteBookType.Size = new Size(93, 28);
+            buttonDeleteBookType.Size = new Size(119, 28);
             buttonDeleteBookType.TabIndex = 4;
             buttonDeleteBookType.Text = "Kitap Türü Sil";
             buttonDeleteBookType.UseVisualStyleBackColor = true;
@@ -424,9 +424,9 @@
             // 
             // button3
             // 
-            button3.Location = new Point(212, 44);
+            button3.Location = new Point(187, 54);
             button3.Name = "button3";
-            button3.Size = new Size(93, 41);
+            button3.Size = new Size(144, 23);
             button3.TabIndex = 2;
             button3.Text = "Kitap Türü Ekle";
             button3.UseVisualStyleBackColor = true;
@@ -443,7 +443,7 @@
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 96);
+            dataGridView1.Location = new Point(6, 83);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(325, 135);
             dataGridView1.TabIndex = 0;
@@ -454,11 +454,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
-            ClientSize = new Size(1164, 648);
+            ClientSize = new Size(1166, 627);
+            Controls.Add(dataGridViewKitaplar);
+            Controls.Add(label7);
             Controls.Add(groupBox1);
             Controls.Add(groupBox4);
-            Controls.Add(label7);
-            Controls.Add(dataGridViewKitaplar);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Icon = (Icon)resources.GetObject("$this.Icon");

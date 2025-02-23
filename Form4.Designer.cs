@@ -48,9 +48,17 @@
             textBoxEditusername = new TextBox();
             label3 = new Label();
             label4 = new Label();
+            groupBox3 = new GroupBox();
+            button5 = new Button();
+            textBoxfilterpassword = new TextBox();
+            textBoxfilterusername = new TextBox();
+            label6 = new Label();
+            label7 = new Label();
+            button6 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // textBoxusername
@@ -132,7 +140,7 @@
             dataGridViewCellStyle2.SelectionBackColor = Color.Blue;
             dataGridViewCellStyle2.SelectionForeColor = Color.White;
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Size = new Size(490, 247);
+            dataGridView1.Size = new Size(697, 247);
             dataGridView1.TabIndex = 6;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -241,12 +249,84 @@
             label4.TabIndex = 5;
             label4.Text = "Kullanıcı adı";
             // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(button6);
+            groupBox3.Controls.Add(button5);
+            groupBox3.Controls.Add(textBoxfilterpassword);
+            groupBox3.Controls.Add(textBoxfilterusername);
+            groupBox3.Controls.Add(label6);
+            groupBox3.Controls.Add(label7);
+            groupBox3.Location = new Point(508, 19);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(201, 199);
+            groupBox3.TabIndex = 8;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Filtreleme";
+            // 
+            // button5
+            // 
+            button5.ForeColor = Color.Black;
+            button5.Location = new Point(3, 142);
+            button5.Name = "button5";
+            button5.Size = new Size(74, 35);
+            button5.TabIndex = 13;
+            button5.Text = "Filtrele";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // textBoxfilterpassword
+            // 
+            textBoxfilterpassword.Location = new Point(6, 103);
+            textBoxfilterpassword.Name = "textBoxfilterpassword";
+            textBoxfilterpassword.Size = new Size(117, 23);
+            textBoxfilterpassword.TabIndex = 10;
+            // 
+            // textBoxfilterusername
+            // 
+            textBoxfilterusername.Location = new Point(6, 42);
+            textBoxfilterusername.Name = "textBoxfilterusername";
+            textBoxfilterusername.Size = new Size(117, 23);
+            textBoxfilterusername.TabIndex = 8;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(6, 85);
+            label6.Name = "label6";
+            label6.Size = new Size(30, 15);
+            label6.TabIndex = 11;
+            label6.Text = "Şifre";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(6, 24);
+            label7.Name = "label7";
+            label7.Size = new Size(71, 15);
+            label7.TabIndex = 9;
+            label7.Text = "Kullanıcı adı";
+            // 
+            // button6
+            // 
+            button6.ForeColor = Color.Black;
+            button6.Location = new Point(86, 142);
+            button6.Name = "button6";
+            button6.Size = new Size(108, 35);
+            button6.TabIndex = 14;
+            button6.Text = "Filtre temizle";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
-            ClientSize = new Size(511, 477);
+            ClientSize = new Size(716, 477);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
@@ -261,6 +341,8 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -283,5 +365,12 @@
         private Label labeluserid;
         private Label label5;
         private Button button4;
+        private GroupBox groupBox3;
+        private Button button5;
+        private TextBox textBoxfilterpassword;
+        private TextBox textBoxfilterusername;
+        private Label label6;
+        private Label label7;
+        private Button button6;
     }
 }
