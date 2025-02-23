@@ -60,7 +60,7 @@ namespace KutuphaneYonetimSistemi
                     return;
                 }
 
-                if (checkresponse == 1)
+                if (checkresponse >= 1)
                 {
                     truepassword = true;
                 }
@@ -76,7 +76,7 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Veri okunamadı. Lütfen veritabanını kontrol edin. Eğer yetkii değilseniz lütfen IT departmaanı ile iletişime geçiniz! " +
+                MessageBox.Show("Veri okunamadı. Lütfen veritabanını kontrol edin. Eğer yetkili değilseniz lütfen IT departmaanı ile iletişime geçiniz! " +
                     "\n" +
                     "Hata Mesajı:" +
                     "\n" +

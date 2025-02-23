@@ -97,9 +97,9 @@ namespace KutuphaneYonetimSistemi
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            string id = labeluserid.Text.ToString();
-            string newusername = textBoxEditusername.Text.ToString();
-            string newpassword = textBoxEditpassword.Text.ToString();
+            string? id = labeluserid.Text.ToString();
+            string? newusername = textBoxEditusername.Text.ToString();
+            string? newpassword = textBoxEditpassword.Text.ToString();
 
             if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(newusername) || string.IsNullOrEmpty(newpassword))
             {
@@ -215,13 +215,15 @@ namespace KutuphaneYonetimSistemi
             dataGridView1.Refresh();
             getalluser();
         }
-
+        [Obsolete]
         private void button5_Click(object sender, EventArgs e)
         {
             try
             {
-                connection?.Open();
-
+                if (connection == null || connection.State == ConnectionState.Closed)
+                {
+                    connection?.Open();
+                }
                 string query = "SELECT * FROM TableKutuphaneYoneticileri WHERE 1=1";
 
                 List<string> conditions = new List<string>();
