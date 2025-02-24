@@ -1,12 +1,11 @@
 ﻿using DotNetEnv;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace KutuphaneYonetimSistemi
 {
     public partial class Form2 : Form
     {
-        [Obsolete]
         SqlConnection? connection;
 
         public Form2()
@@ -17,7 +16,6 @@ namespace KutuphaneYonetimSistemi
         // METHOD AREA
 
 
-        [Obsolete]
         public void Showdata()
         {
             string query = "" +
@@ -41,7 +39,6 @@ namespace KutuphaneYonetimSistemi
             }
         }
 
-        [Obsolete]
         public void Showtypebook()
         {
             string query = "SELECT * FROM TableKitapTurleri";
@@ -72,7 +69,6 @@ namespace KutuphaneYonetimSistemi
         }
 
 
-        [Obsolete]
         private bool IsBookAvailable(int id)
         {
             try
@@ -114,8 +110,6 @@ namespace KutuphaneYonetimSistemi
 
 
 
-
-        [Obsolete]
         private void Form2_Load(object sender, EventArgs e)
         {
             try
@@ -159,7 +153,6 @@ namespace KutuphaneYonetimSistemi
 
         }
 
-        [Obsolete]
         private void buttonKitapEkle_Click(object sender, EventArgs e)
         {
             try
@@ -234,7 +227,6 @@ namespace KutuphaneYonetimSistemi
 
         }
 
-        [Obsolete]
         private void buttonKitapBilgiGuncelle_Click(object sender, EventArgs e)
         {
             try
@@ -268,7 +260,6 @@ namespace KutuphaneYonetimSistemi
             Showdata();
         }
 
-        [Obsolete]
         private void buttonKitabiOduncVer_Click(object sender, EventArgs e)
         {
             try
@@ -301,7 +292,6 @@ namespace KutuphaneYonetimSistemi
             Showdata();
         }
 
-        [Obsolete]
         private void button3_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxBookType.Text))
@@ -402,7 +392,6 @@ namespace KutuphaneYonetimSistemi
             Application.Exit();
         }
 
-        [Obsolete]
         private void buttonara_Click(object sender, EventArgs e)
         {
             try
@@ -474,7 +463,6 @@ namespace KutuphaneYonetimSistemi
         }
 
 
-        [Obsolete]
         private void buttonKitapSilme_Click(object sender, EventArgs e)
         {
             try
@@ -536,7 +524,6 @@ namespace KutuphaneYonetimSistemi
             }
         }
 
-        [Obsolete]
         private void buttonClearFilter_Click(object sender, EventArgs e)
         {
             var (isValid, message) = CheckKitapId(kitapid?.Text?.ToString() ?? "");
@@ -575,7 +562,6 @@ namespace KutuphaneYonetimSistemi
             }
         }
 
-        [Obsolete]
         private void buttonDeleteBookType_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedCells.Count == 0)

@@ -1,6 +1,6 @@
 ﻿using DotNetEnv;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace KutuphaneYonetimSistemi
 {
@@ -191,7 +191,7 @@ namespace KutuphaneYonetimSistemi
                 }
                 finally
                 {
-                    connection.Close();
+                    connection?.Close();
                 }
             }
         }
@@ -215,7 +215,8 @@ namespace KutuphaneYonetimSistemi
             dataGridView1.Refresh();
             getalluser();
         }
-        [Obsolete]
+
+
         private void button5_Click(object sender, EventArgs e)
         {
             try
