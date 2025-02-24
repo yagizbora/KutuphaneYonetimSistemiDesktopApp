@@ -37,7 +37,7 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Baðlantý hatasý: " + ex.Message);
+                MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluþtu."));
             }
         }
 
@@ -106,7 +106,7 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Baðlantý Hatasý! " + ex.Message);
+                MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluþtu."));
             }
             finally
             {

@@ -34,7 +34,7 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bağlantı hatası: " + ex.Message);
+                MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
             }
         }
 
@@ -76,11 +76,8 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Veri okunamadı. Lütfen veritabanını kontrol edin. Eğer yetkili değilseniz lütfen IT departmaanı ile iletişime geçiniz! " +
-                    "\n" +
-                    "Hata Mesajı:" +
-                    "\n" +
-                    ex.Message, "HATA!");
+                MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
+
             }
             finally
             {

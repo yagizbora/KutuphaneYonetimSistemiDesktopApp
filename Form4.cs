@@ -49,7 +49,7 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bağlantı hatası: " + ex.Message);
+                MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
             }
         }
 
@@ -87,7 +87,7 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hata" + "\n" + ex.Message);
+                MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
             }
             finally
             {
@@ -136,9 +136,8 @@ namespace KutuphaneYonetimSistemi
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Hata " +
-                        "\n" +
-                        ex.Message);
+                    MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
+
                 }
                 finally
                 {
@@ -185,9 +184,8 @@ namespace KutuphaneYonetimSistemi
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Hata " +
-                        "\n" +
-                        ex.Message);
+                    MessageBox.Show("Hata: " +  "\n"+ (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
+
                 }
                 finally
                 {
@@ -262,7 +260,7 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hata: " + ex.Message);
+                MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
 
             }
             finally
