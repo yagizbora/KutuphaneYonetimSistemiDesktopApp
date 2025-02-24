@@ -16,7 +16,6 @@ namespace KutuphaneYonetimSistemi
 
         Form3? formauth;
 
-        [Obsolete]
         SqlConnection? connection;
 
         [Obsolete]
