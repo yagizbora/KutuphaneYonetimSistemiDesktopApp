@@ -1,4 +1,5 @@
 ﻿using DotNetEnv;
+using KutuphaneYonetimSistemi.Models;
 using System.Data;
 using Microsoft.Data.SqlClient;
 
@@ -16,15 +17,29 @@ namespace KutuphaneYonetimSistemi
 
         public void getalluser()
         {
-            string query = "SELECT * FROM TableKutuphaneYoneticileri";
-            SqlDataAdapter response = new(query, connection);
-            DataTable dt = new DataTable();
-            response?.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                dataGridView1.DataSource = dt;
+                if (connection == null || connection.State == ConnectionState.Closed)
+                {
+                    connection?.Open();
+                }          
+            string query = "SELECT id, KullaniciAdi, Sifre FROM TableKutuphaneYoneticileri";
+            SqlCommand response = new SqlCommand(query, connection);
+            SqlDataReader reader = response.ExecuteReader();
+            List<AdminUserModels> userlist = new List<AdminUserModels>();
 
+            while(reader.Read())
+            {
+                AdminUserModels user = new AdminUserModels
+                {
+                    id = reader["id"] != DBNull.Value ? Convert.ToInt32(reader["id"]) : (int?)null,
+                    KullanıcıAdı = reader["KullaniciAdi"].ToString(),
+                    Şifre = reader["Sifre"].ToString()
+                };
+                userlist.Add(user);
             }
+            reader.Close();
+            dataGridView1.DataSource = userlist;
+
+            DataTable dt = new DataTable();
         }
         private void Form4_Load(object sender, EventArgs e)
         {
