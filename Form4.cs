@@ -23,19 +23,19 @@ namespace KutuphaneYonetimSistemi
             }
             string query = "SELECT id, KullaniciAdi, Sifre FROM TableKutuphaneYoneticileri";
             SqlCommand response = new SqlCommand(query, connection);
-            SqlDataReader reader = response.ExecuteReader();
+            SqlDataReader result = response.ExecuteReader();
             List<AdminUserModels> userlist = new List<AdminUserModels>();
-            while (reader.Read())
+            while (result.Read())
             {
                 AdminUserModels user = new AdminUserModels
                 {
-                    id = reader["id"] != DBNull.Value ? Convert.ToInt32(reader["id"]) : (int?)null,
-                    KullanıcıAdı = reader["KullaniciAdi"].ToString(),
-                    Şifre = reader["Sifre"].ToString()
+                    id = result["id"] != DBNull.Value ? Convert.ToInt32(result["id"]) : (int?)null,
+                    KullanıcıAdı = result["KullaniciAdi"].ToString(),
+                    Şifre = result["Sifre"].ToString()
                 };
                 userlist.Add(user);
             }
-            reader.Close();
+            result.Close();
             dataGridView1.DataSource = userlist;
             DataTable dt = new DataTable();
         }
