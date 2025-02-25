@@ -76,10 +76,24 @@ namespace KutuphaneYonetimSistemi
                     connection?.Open();
                 }
 
+                List<CreateUserModels> userModels = new List<CreateUserModels>();
+
+                CreateUserModels createuser = new CreateUserModels
+                {
+                    username = textBoxusername.Text.Trim(),
+                    password = textBoxpassword.Text.Trim()
+                };
+
+                if (string.IsNullOrEmpty(createuser.username) || string.IsNullOrEmpty(createuser.password)) 
+                {
+                    MessageBox.Show("Kullanıcı adı veya şifre boş olamaz!","Hata!");
+                    return;
+                }
+
                 string query = "INSERT INTO TableKutuphaneYoneticileri (Kullaniciadi,Sifre) VALUES(@username,@password)";
                 SqlCommand response = new(query, connection);
-                response.Parameters.AddWithValue("@username", textBoxusername.Text);
-                response.Parameters.AddWithValue("@password", textBoxpassword.Text);
+                response.Parameters.AddWithValue("@username", createuser.username);
+                response.Parameters.AddWithValue("@password", createuser.password);
 
                 response.ExecuteNonQuery();
                 DialogResult result = MessageBox.Show("Hesap Oluşturuldu!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
