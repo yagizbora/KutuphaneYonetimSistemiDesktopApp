@@ -1,7 +1,7 @@
 ﻿using DotNetEnv;
 using KutuphaneYonetimSistemi.Models;
-using System.Data;
 using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace KutuphaneYonetimSistemi
 {
@@ -17,16 +17,15 @@ namespace KutuphaneYonetimSistemi
 
         public void getalluser()
         {
-                if (connection == null || connection.State == ConnectionState.Closed)
-                {
-                    connection?.Open();
-                }          
+            if (connection == null || connection.State == ConnectionState.Closed)
+            {
+                connection?.Open();
+            }
             string query = "SELECT id, KullaniciAdi, Sifre FROM TableKutuphaneYoneticileri";
             SqlCommand response = new SqlCommand(query, connection);
             SqlDataReader reader = response.ExecuteReader();
             List<AdminUserModels> userlist = new List<AdminUserModels>();
-
-            while(reader.Read())
+            while (reader.Read())
             {
                 AdminUserModels user = new AdminUserModels
                 {
@@ -38,7 +37,6 @@ namespace KutuphaneYonetimSistemi
             }
             reader.Close();
             dataGridView1.DataSource = userlist;
-
             DataTable dt = new DataTable();
         }
         private void Form4_Load(object sender, EventArgs e)
@@ -199,7 +197,7 @@ namespace KutuphaneYonetimSistemi
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Hata: " +  "\n"+ (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
+                    MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
 
                 }
                 finally
@@ -239,6 +237,13 @@ namespace KutuphaneYonetimSistemi
                     connection?.Open();
                 }
                 string query = "SELECT * FROM TableKutuphaneYoneticileri WHERE 1=1";
+                List<AdminUserModelsFilters> userlist = new List<AdminUserModelsFilters>();
+
+                AdminUserModelsFilters filters = new AdminUserModelsFilters
+                {
+                    KullaniciAdi = textBoxfilterusername.Text.Trim(),
+                    Sifre = textBoxfilterpassword.Text.Trim()
+                };
 
                 List<string> conditions = new List<string>();
                 SqlCommand request = new SqlCommand();
@@ -247,12 +252,12 @@ namespace KutuphaneYonetimSistemi
                 if (!string.IsNullOrEmpty(textBoxfilterusername.Text))
                 {
                     conditions.Add("Kullaniciadi LIKE @filterusername");
-                    request.Parameters.AddWithValue("@filterusername", textBoxfilterusername.Text);
+                    request.Parameters.AddWithValue("@filterusername", filters.KullaniciAdi + "%");
                 }
                 if (!string.IsNullOrEmpty(textBoxfilterpassword.Text))
                 {
                     conditions.Add("Sifre LIKE @filterpassword");
-                    request.Parameters.AddWithValue("@filterpassword", textBoxfilterpassword.Text);
+                    request.Parameters.AddWithValue("@filterpassword", filters.Sifre + "%");
                 }
                 if (conditions.Count > 0)
                 {

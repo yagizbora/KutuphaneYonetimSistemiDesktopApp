@@ -1,5 +1,6 @@
 ﻿using DotNetEnv;
 using System.Data;
+using KutuphaneYonetimSistemi.Models;
 using Microsoft.Data.SqlClient;
 
 namespace KutuphaneYonetimSistemi
@@ -47,12 +48,25 @@ namespace KutuphaneYonetimSistemi
                 {
                     connection?.Open();
                 }
+                List<AdminUserAuthModels> auth = new List<AdminUserAuthModels> ();
+
+                AdminUserAuthModels checkpassword = new AdminUserAuthModels
+                {
+                    password = textBoxpassword.Text.Trim()
+                };
+
+                if(string.IsNullOrEmpty(checkpassword.password))
+                {
+                    MessageBox.Show("Şifre boş olamaz!","Hata!");
+                    return;
+                }
 
                 string query = "SELECT COUNT(password) as Count FROM TableAdminPasswordCheck WHERE password = @password";
                 SqlCommand response = new(query, connection);
-                response.Parameters.AddWithValue("@password", textBoxpassword.Text);
-
+                response.Parameters.AddWithValue("@password", checkpassword.password);
                 int? checkresponse = (int)response.ExecuteScalar();
+
+
 
                 if (checkresponse == 0)
                 {
@@ -85,7 +99,5 @@ namespace KutuphaneYonetimSistemi
             }
 
         }
-
-
     }
 }
