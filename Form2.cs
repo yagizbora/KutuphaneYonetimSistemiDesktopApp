@@ -45,7 +45,7 @@ namespace KutuphaneYonetimSistemi
                 {
                     BookModels books = new BookModels
                     {
-                        ID = (int)(result["ID"] != DBNull.Value ? Convert.ToInt32(result["ID"]) : (int?)null),
+                        ID = result["ID"] != DBNull.Value ? Convert.ToInt32(result["ID"]) : null,
                         KitapAdi = result["Kitap Adı"].ToString(),
                         YazarAdi = result["Yazar Adı"].ToString(),
                         YazarSoyadi = result["Yazar Soyadı"].ToString(),
@@ -141,7 +141,7 @@ namespace KutuphaneYonetimSistemi
             }catch(Exception ex)
             {
                 MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex?.Message);
             }
             finally
             {

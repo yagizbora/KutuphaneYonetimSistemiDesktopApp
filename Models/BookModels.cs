@@ -8,7 +8,7 @@ namespace KutuphaneYonetimSistemi.Models
 {
    public class BookModels
     {
-        public int ID { get; set; }
+        public int? ID { get; set; }
         public string? KitapAdi { get; set; }
         public string? YazarAdi { get; set; }
         public string? YazarSoyadi { get; set; }
