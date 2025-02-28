@@ -463,9 +463,9 @@ namespace KutuphaneYonetimSistemi
                     {
                         connection?.Open();
                     }
-
+                    string query = "UPDATE TableKitaplar SET OduncAlan = @p1, OduncAlmaTarihi = @p2, Durum = @p3 WHERE ID = @p4"
                     SqlCommand response = new SqlCommand(
-                        "UPDATE TableKitaplar SET OduncAlan = @p1, OduncAlmaTarihi = @p2, Durum = @p3 WHERE ID = @p4",
+                        query,
                         connection);
 
                     response.Parameters.AddWithValue("@p1", DBNull.Value);
