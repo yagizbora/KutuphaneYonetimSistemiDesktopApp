@@ -48,16 +48,16 @@ namespace KutuphaneYonetimSistemi
                 {
                     connection?.Open();
                 }
-                List<AdminUserAuthModels> auth = new List<AdminUserAuthModels> ();
+                List<AdminUserAuthModels> auth = new List<AdminUserAuthModels>();
 
                 AdminUserAuthModels checkpassword = new AdminUserAuthModels
                 {
                     password = textBoxpassword.Text.Trim()
                 };
 
-                if(string.IsNullOrEmpty(checkpassword.password))
+                if (string.IsNullOrEmpty(checkpassword.password))
                 {
-                    MessageBox.Show("Şifre boş olamaz!","Hata!");
+                    MessageBox.Show("Şifre boş olamaz!", "Hata!");
                     return;
                 }
 
@@ -70,7 +70,7 @@ namespace KutuphaneYonetimSistemi
 
                 if (checkresponse == 0)
                 {
-                    MessageBox.Show("Şifre yanlış!","Hata!");
+                    MessageBox.Show("Şifre yanlış!", "Hata!");
                     return;
                 }
 
@@ -98,6 +98,18 @@ namespace KutuphaneYonetimSistemi
                 connection?.Close();
             }
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked)
+            {
+                textBoxpassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBoxpassword.UseSystemPasswordChar = true;
+            }
         }
     }
 }

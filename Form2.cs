@@ -1,6 +1,7 @@
 ﻿using DotNetEnv;
-using System.Data;
+using KutuphaneYonetimSistemi.Models;
 using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace KutuphaneYonetimSistemi
 {
@@ -14,31 +15,139 @@ namespace KutuphaneYonetimSistemi
         }
 
         // METHOD AREA
-
-
         public void Showdata()
         {
-            string query = "" +
-                "SELECT book.ID," +
-                "book.KitapAdi as [Kitap Adı]," +
-                "book.YazarAdi as [Yazar Adı]," +
-                "book.YazarSoyadi as [Yazar Soyadı]," +
-                "book.ISBN,book.Durum," +
-                "book.OduncAlan as [Ödünç Alan]," +
-                "book.OduncAlmaTarihi as [Ödünç Alma Tarihi]," +
-                "book.KitapTurKodu as [Kitap Tür Kodu], " +
-                "booktype.Aciklama as [Açıklama]" +
-                "FROM TableKitaplar book JOIN TableKitapTurleri booktype ON booktype.KitapTurKodu = book.KitapTurKodu";
-            SqlDataAdapter response = new(query, connection);
-            DataTable dt = new DataTable();
-            response?.Fill(dt);
-            if (dt.Rows.Count > 0)
+            try
             {
-                dataGridViewKitaplar.DataSource = dt;
+                if (connection == null || connection.State == ConnectionState.Closed)
+                {
+                    connection?.Open();
+                }
+                string query = "" +
+                     "SELECT book.ID," +
+                     "book.KitapAdi as [Kitap Adı]," +
+                     "book.YazarAdi as [Yazar Adı]," +
+                     "book.YazarSoyadi as [Yazar Soyadı]," +
+                     "book.ISBN,book.Durum," +
+                     "book.OduncAlan as [Ödünç Alan]," +
+                     "book.OduncAlmaTarihi as [Ödünç Alma Tarihi]," +
+                     "book.KitapTurKodu as [Kitap Tür Kodu], " +
+                      "booktype.Aciklama as [Açıklama]" +
+                    "FROM TableKitaplar book JOIN TableKitapTurleri booktype ON booktype.KitapTurKodu = book.KitapTurKodu";
+                SqlCommand response = new(query, connection);
+                SqlDataReader result = response.ExecuteReader();
+                dataGridViewKitaplar.DataSource = null;
+                dataGridViewKitaplar.Columns.Clear();
 
+                List<BookModels> bookresult = new List<BookModels>();
+
+                while (result.Read())
+                {
+                    BookModels books = new BookModels
+                    {
+                        ID = (int)(result["ID"] != DBNull.Value ? Convert.ToInt32(result["ID"]) : (int?)null),
+                        KitapAdi = result["Kitap Adı"].ToString(),
+                        YazarAdi = result["Yazar Adı"].ToString(),
+                        YazarSoyadi = result["Yazar Soyadı"].ToString(),
+                        ISBN = result["ISBN"].ToString(),
+                        Durum = result["Durum"] != DBNull.Value ? Convert.ToBoolean(result["Durum"]) : null,
+                        OduncAlan = result["Ödünç Alan"].ToString(),
+                        OduncAlmaTarihi = result["Ödünç Alma Tarihi"] != DBNull.Value
+                            ? DateOnly.FromDateTime(Convert.ToDateTime(result["Ödünç Alma Tarihi"]))
+                            : (DateOnly?)null,
+                        KitapTurKodu = result["Kitap Tür Kodu"] != DBNull.Value ? (int?)result["Kitap Tür Kodu"] : null,
+                        Aciklama = result["Açıklama"].ToString()
+                    };
+                    bookresult.Add(books);
+                }
+
+                dataGridViewKitaplar.AutoGenerateColumns = false;
+
+                dataGridViewKitaplar.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "ID",
+                    DataPropertyName = "ID",
+                    DisplayIndex = 0
+                });
+
+                dataGridViewKitaplar.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Kitap Adı",
+                    DataPropertyName = "KitapAdi",
+                    DisplayIndex = 1
+                });
+
+                dataGridViewKitaplar.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Yazar Adı",
+                    DataPropertyName = "YazarAdi",
+                    DisplayIndex = 2
+                });
+
+                dataGridViewKitaplar.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Yazar Soyadı",
+                    DataPropertyName = "YazarSoyadi",
+                    DisplayIndex = 3
+                });
+
+                dataGridViewKitaplar.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "ISBN",
+                    DataPropertyName = "ISBN",
+                    DisplayIndex = 4
+                });
+
+                DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
+                {
+                    HeaderText = "Durum",
+                    DataPropertyName = "Durum",
+                    TrueValue = true,
+                    FalseValue = false,
+                    DisplayIndex = 5 
+                };
+                dataGridViewKitaplar.Columns.Add(checkBoxColumn);
+
+                dataGridViewKitaplar.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Ödünç Alan",
+                    DataPropertyName = "OduncAlan",
+                    DisplayIndex = 6
+                });
+
+                dataGridViewKitaplar.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Ödünç Alma Tarihi",
+                    DataPropertyName = "OduncAlmaTarihi",
+                    DisplayIndex = 7
+                });
+
+                dataGridViewKitaplar.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Kitap Tür Kodu",
+                    DataPropertyName = "KitapTurKodu",
+                    DisplayIndex = 8
+                });
+
+                dataGridViewKitaplar.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Açıklama",
+                    DataPropertyName = "Aciklama",
+                    DisplayIndex = 9
+                });
+
+                dataGridViewKitaplar.DataSource = bookresult;
+                DataTable dt = new DataTable();
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection?.Close();
             }
         }
-
         public void Showtypebook()
         {
             string query = "SELECT * FROM TableKitapTurleri";
@@ -220,10 +329,25 @@ namespace KutuphaneYonetimSistemi
             textBoxKitapTurKodu.Text = dataGridViewKitaplar.Rows[chooseline].Cells[8].Value?.ToString();
             textBoxOduncAlan.Text = dataGridViewKitaplar.Rows[chooseline].Cells[6].Value?.ToString();
 
-            if (dataGridViewKitaplar.Rows[chooseline].Cells[7].Value != DBNull.Value)
+            if (dataGridViewKitaplar.Rows[chooseline].Cells[7].Value != DBNull.Value &&
+                dataGridViewKitaplar.Rows[chooseline].Cells[7].Value != null)
             {
-                dateTimePicker1.Value = Convert.ToDateTime(dataGridViewKitaplar.Rows[chooseline].Cells[7].Value);
+                DateTime tarih = Convert.ToDateTime(dataGridViewKitaplar.Rows[chooseline].Cells[7].Value);
+
+                if (tarih >= dateTimePicker1.MinDate && tarih <= dateTimePicker1.MaxDate)
+                {
+                    dateTimePicker1.Value = tarih;
+                }
+                else
+                {
+                    dateTimePicker1.Value = DateTime.Today; // Geçersiz tarihse bugünün tarihini ata
+                }
             }
+            else
+            {
+                dateTimePicker1.Value = DateTime.Today; // NULL ise bugünün tarihini ata
+            }
+
 
         }
 
@@ -251,7 +375,7 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu.")    );
+                MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
             }
             finally
             {
@@ -537,12 +661,12 @@ namespace KutuphaneYonetimSistemi
                     DialogResult result1 = MessageBox.Show("Tüm verileri tekrardan yenilememi ister misiniz?", "Soru?", MessageBoxButtons.YesNo);
                     if (result1 == DialogResult.Yes)
                     {
-                        
+
                         Showtypebook();
                         Showdata();
                     }
                 }
-                return;  
+                return;
             }
 
             if ((textBoxKitapAdi != null && !string.IsNullOrEmpty(textBoxKitapAdi.Text))

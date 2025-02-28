@@ -114,7 +114,8 @@ namespace KutuphaneYonetimSistemi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hata: " + "\n" + (ex?.Message ?? "Bilinmeyen bir hata oluştu."));
+                string? error = ex.Message;
+                MessageBox.Show("Hata: " + "\n" + (error ?? "Bilinmeyen bir hata oluştu."));
             }
             finally
             {
