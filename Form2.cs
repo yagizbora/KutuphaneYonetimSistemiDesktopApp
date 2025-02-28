@@ -340,12 +340,12 @@ namespace KutuphaneYonetimSistemi
                 }
                 else
                 {
-                    dateTimePicker1.Value = DateTime.Today; // Geçersiz tarihse bugünün tarihini ata
+                    dateTimePicker1.Value = DateTime.Today; 
                 }
             }
             else
             {
-                dateTimePicker1.Value = DateTime.Today; // NULL ise bugünün tarihini ata
+                dateTimePicker1.Value = DateTime.Today; 
             }
 
 
