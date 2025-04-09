@@ -463,7 +463,7 @@ namespace KutuphaneYonetimSistemi
                     {
                         connection?.Open();
                     }
-                    string query = "UPDATE TableKitaplar SET OduncAlan = @p1, OduncAlmaTarihi = @p2, Durum = @p3 WHERE ID = @p4"
+                    string query = "UPDATE TableKitaplar SET OduncAlan = @p1, OduncAlmaTarihi = @p2, Durum = @p3 WHERE ID = @p4";
                     SqlCommand response = new SqlCommand(
                         query,
                         connection);
